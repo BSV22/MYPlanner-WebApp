@@ -79,6 +79,13 @@ const visibleTodos = showFinished
   ? todos.filter((item) => item.isCompleted)
   : todos;
 
+const handleKeyDown = (e) => {
+  if (e.key === 'Enter') {
+    if (!todo.trim()) return;
+    setTodos([...todos, { id: uuidv4(), isCompleted: false, todo }]);
+    setTodo('');
+  }
+}
   return (
     <>
       <Navbar />
@@ -89,7 +96,7 @@ const visibleTodos = showFinished
           <button onClick={handleSave} className='bg-green-500 text-gray-900 rounded-xl py-1 px-3 font-bold cursor-pointer hover:bg-green-400'><LuSaveAll /></button>
           </div>
           <div className="action flex gap-8 py-3">
-            <input type="text" onChange={handleChange} placeholder='Enter ToDo....' value={todo} className='bg-gray-500 px-3 py-1 text-black rounded-[5px] w-1/2' />
+            <input type="text" onChange={handleChange} placeholder='Enter ToDo....' value={todo}  onKeyDown={handleKeyDown} className='bg-gray-500 px-3 py-1 text-black rounded-[5px] w-1/2' />
             <button onClick={handleAdd} className='bg-blue-900 text-amber-50 rounded-xl py-1 px-3 hover:bg-blue-800'>Add</button>
           </div>
           <div className='flex px-3 gap-3'>
