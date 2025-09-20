@@ -1,7 +1,7 @@
 {
   "name": "todo-app",
   "private": true,
-  "homepage": "https://BSV22.github.io/MYPlanner-WebApp/",
+  "homepage": ".",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
